@@ -22,7 +22,7 @@ struct HashType
 // Compute the hash function
 int hash(int x)
 {
- return x % hashSz;
+    return x ;
 }
 
 // parses input file to an integer array
@@ -38,13 +38,8 @@ int parseData(char* inputFileName, struct RecordType** ppData)
 	if (inFile)
 	{
 		fscanf(inFile, "%d\n", &dataSz);
-		*ppData = (struct RecordType*) malloc(sizeof(struct RecordType) * dataSz);
 		// Implement parse data block
-		if (*ppData == NULL)
-		{
-			printf("Cannot allocate memory\n");
-			exit(-1);
-		}
+		
 		for (i = 0; i < dataSz; ++i)
 		{
 			pRecord = *ppData + i;
@@ -90,10 +85,5 @@ void displayRecordsInHash(struct HashType *pHashArray, int hashSz)
 
 int main(void)
 {
-	struct RecordType *pRecords;
-	int recordSz = 0;
-
-	recordSz = parseData("input.txt", &pRecords);
-	printRecords(pRecords, recordSz);
-	// Your hash implementation
+	return 0;
 }
